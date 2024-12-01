@@ -15,7 +15,7 @@ pipeline {
                 bat 'echo Running test script'
                 
                 // Use full path for bash executable and correct script path
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "C:/path/to/jenkins/scripts/test.sh"'
+                bat '"C:\\Program Files\\Git\\bin\\bash.exe"-c"./jenkins/scripts/test.sh"'
             }
         }
     }
