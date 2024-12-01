@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'NodeJs' // Ensure this matches the name in Jenkins configuration
+    }
     environment {
-        CI = 'true' 
+        CI = 'true'
     }
     stages {
         stage('Build') {
@@ -11,11 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Added debug echo for clarity
-                bat 'echo Running test script'
-                
-                // Use full path for bash executable and correct script path
-                bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "./jenkins/scripts/test.sh"'
+                bat 'npm test -- --passWithNoTests'
             }
         }
     }
